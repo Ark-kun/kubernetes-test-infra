@@ -327,6 +327,7 @@ presubmits:
     decorate: true
     labels:
       preset-service-account: "true"
+    run_if_changed: "frontend/.+"
     spec:
       containers:
       - image: node:12
@@ -341,6 +342,7 @@ presubmits:
     decorate: true
     labels:
       preset-service-account: "true"
+    run_if_changed: "backend/.+"
     spec:
       containers:
       - image: l.gcr.io/google/bazel:0.24.0
@@ -406,6 +408,7 @@ presubmits:
     decorate: true
     labels:
       preset-service-account: "true"
+    run_if_changed: "(backend|frontend|manifests|proxy|test)/.+|[^/]+"
     spec:
       containers:
       - image: gcr.io/k8s-testimages/kubekins-e2e:v20200716-e3a0033-master
@@ -417,6 +420,7 @@ presubmits:
     decorate: true
     labels:
       preset-service-account: "true"
+    run_if_changed: "(backend|manifests|proxy|test)/.+|[^/]+"
     spec:
       containers:
       - image: gcr.io/k8s-testimages/kubekins-e2e:v20200716-e3a0033-master
